@@ -10,5 +10,6 @@ namespace ShoeStoreTeam.Models
         public byte Id { get; set; }
         public string Name { get; set; }
         public byte ParentId { get; set; }
+        public int DisplayOrder { get; set; }
     }
 }

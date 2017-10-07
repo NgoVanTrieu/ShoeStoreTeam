@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -210,6 +211,14 @@
     <Compile Include="Migrations\201710070105285_UpdateTable.cs" />
     <Compile Include="Migrations\201710070105285_UpdateTable.Designer.cs">
       <DependentUpon>201710070105285_UpdateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710070244584_UpdatetableAspNetUser.cs" />
+    <Compile Include="Migrations\201710070244584_UpdatetableAspNetUser.Designer.cs">
+      <DependentUpon>201710070244584_UpdatetableAspNetUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710070306143_UpdateTableCategory.cs" />
+    <Compile Include="Migrations\201710070306143_UpdateTableCategory.Designer.cs">
+      <DependentUpon>201710070306143_UpdateTableCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountLoginModel.Context.cs">
@@ -509,6 +518,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -524,6 +534,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710070105285_UpdateTable.resx">
       <DependentUpon>201710070105285_UpdateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710070244584_UpdatetableAspNetUser.resx">
+      <DependentUpon>201710070244584_UpdatetableAspNetUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710070306143_UpdateTableCategory.resx">
+      <DependentUpon>201710070306143_UpdateTableCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

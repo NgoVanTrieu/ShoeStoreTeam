@@ -1,4 +1,9 @@
-﻿
+﻿@using ShoeStoreTeam.Models
+@model List<Category>
+@{
+    List<Category> primaryCategory = new List<Category>();
+    primaryCategory = Model.Where(n => n.ParentId == 0).ToList();
+}
 <div class="menu-block menu-block-section container-fluid no-padding">
     <div class="container">
         <nav class="navbar ow-navigation">
@@ -18,38 +23,38 @@
                 <a class="text-logo desktop-hide" href="@Url.Action("Index","Home")"><span>Xuân</span> Phát</a>
             </div>
             <div class="navbar-collapse collapse navbar-right" id="navbar">
+               
                 <ul class="nav navbar-nav menubar">
-                        <li class="dropdown">
-                            <a aria-expanded="false" aria-haspopup="true" role="button" class="dropdown-toggle" title="Home" href="index-2.html">Giới thiệu</a>
-                            <i class="ddl-switch fa fa-angle-down"></i>
-                        </li>
-                        <li class="dropdown">
-                            <a aria-expanded="false" aria-haspopup="true" role="button" class="dropdown-toggle" title="Home" href="index-2.html">Liên hệ</a>
-                            <i class="ddl-switch fa fa-angle-down"></i>
-                        </li>
-                        <li class="dropdown">
-                            <a aria-expanded="false" aria-haspopup="true" role="button" class="dropdown-toggle" title="Home" href="shop.html">Giày nam</a>
-                            <i class="ddl-switch fa fa-angle-down"></i>
-                            <ul class="dropdown-menu">
-                                <li><a title="Shop 1" href="shop-1.html">Giày thể thao</a></li>
-                                <li><a title="Shop 1" href="shop-1.html">Giày công sở</a></li>
-                                <li><a title="Shop 1" href="shop-1.html">Dép nam</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a aria-expanded="false" aria-haspopup="true" role="button" class="dropdown-toggle" title="Home" href="shop-2.html">Giày nữ</a>
-                            <i class="ddl-switch fa fa-angle-down"></i>
-                            <ul class="dropdown-menu">
-                                <li><a title="Shop 2" href="shop-2.html">Giày thể thao</a></li>
-                                <li><a title="Shop 2" href="shop-2.html">Giày cao gót</a></li>
-                                <li><a title="Shop 2" href="shop-2.html">Giày đế xuồng</a></li>
-                                <li><a title="Shop 2" href="shop-2.html">Dép nữ</a></li>
-                            </ul>
-                        </li>
-                        <li><a title="Sofas" href="#saleup-section">Phụ kiện</a></li>
-                        <li><a title="Latest Product" href="#latest-product">Tin tức</a></li>
-                    </ul>
-                
+                    @if (primaryCategory != null && primaryCategory.Count > 0)
+                    {
+                        foreach (var item in primaryCategory)
+                        {
+                            List<Category> subCategory = new List<Category>();
+                            subCategory = Model.Where(n => n.ParentId == item.Id).ToList();
+
+                            <li class="dropdown">
+
+                                @if (subCategory != null && subCategory.Count > 0)
+                                {
+                                    <a aria-expanded="false" aria-haspopup="true" role="button" class="dropdown-toggle" href="#">@item.Name</a>
+                                    <i class="ddl-switch fa fa-angle-down"></i>
+                                    <ul class="dropdown-menu">
+                                        @foreach (var item2 in subCategory)
+                                        {
+                                            <li>
+                                                <a href="#">@item2.Name</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <a href="#">@item.Name</a>
+                                }
+                            </li>
+                        }
+                    }
+                </ul>
             </div>
         </nav>
     </div>

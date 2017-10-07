@@ -33,7 +33,7 @@
         </div>
 
         <!-- Menu Block -->
-        @Html.Partial("_MenuBlock")
+       @{ Html.RenderAction("_MenuBlock", "Category");}
         <!-- Menu Block /- -->
 
         <div id="detail-section" class="detail-section container-fluid no-padding">
