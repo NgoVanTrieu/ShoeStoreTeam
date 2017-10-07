@@ -1,0 +1,92 @@
+﻿@using ShoeStoreTeam.Models
+@model List<Slide>
+@{
+    List<Slide> top = new List<Slide>();
+    top = Model.Where(x => x.Top == true).ToList();
+}
+<div class="photo-slider photo-slider-1 container-fluid no-padding">
+    <!-- Main Carousel -->
+    <div id="main-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <div role="listbox" class="carousel-inner">
+            @if (top != null && top.Count > 0)
+            {
+                foreach (var item in top)
+                {
+                    List<Slide> subTop = new List<Slide>();
+                    subTop = Model.Where(x => x.Top == false).ToList();
+
+                    if (subTop != null && subTop.Count > 0)
+                    {
+                        <div class="item active">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                      
+                                        <img src="@Url.Content("~/Content/Shopping/images/"+@item.Image)" width="528" height="497" />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="testimonial-content">
+                                            <p>@item.Slogan</p>
+                                            <h3>@item.Content</h3>
+                                            <a href="#" title="Shop Now" class="shop-now">Mua hàng</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        foreach (var item2 in subTop)
+                        {
+                            <div class="item">
+                                <div class="carousel-caption">
+                                    <div class="container">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <img src="@Url.Content("~/Content/Shopping/images/"+@item2.Image)" alt="slider" width="560" height="496" />
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="testimonial-content">
+                                                <p>@item2.Slogan</p>
+                                                <h3>@item2.Content</h3>
+                                                <a href="#" title="Shop Now" class="shop-now">Mua hàng</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="item active">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+
+                                        <img src="@Url.Content("~/Content/Shopping/images/"+@item.Image)" width="528" height="497" />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="testimonial-content">
+                                            <p>@item.Slogan</p>
+                                            <h3>@item.Content</h3>
+                                            <a href="#" title="Shop Now" class="shop-now">Mua hàng</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            }
+            }
+
+
+            <a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+            </a>
+            <a class="right carousel-control" href="#main-carousel" role="button" data-slide="next">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div><!-- Main Carousel /-  -->
+</div><!-- Photo Slider 1 -->

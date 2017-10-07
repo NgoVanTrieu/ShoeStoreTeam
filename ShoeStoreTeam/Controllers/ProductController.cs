@@ -7,23 +7,18 @@ using System.Web.Mvc;
 
 namespace ShoeStoreTeam.Controllers
 {
-    public class HomeController : Controller
+    public class ProductController : Controller
     {
         private ApplicationDbContext db;
-        public HomeController()
+        public ProductController()
         {
             db = new ApplicationDbContext();
         }
-        public ActionResult Index()
+        // GET: Product
+        public ActionResult _LatestProduct()
         {
-            return View();
-        }
-
-        public ActionResult _Slider()
-        {
-            var model = db.Slides.ToList();
+            var model = db.Products.Take(10).ToList();
             return PartialView(model);
         }
-
     }
 }
