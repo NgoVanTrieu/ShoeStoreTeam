@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -210,9 +212,30 @@
       <DependentUpon>201710070105285_UpdateTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountLoginModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountLoginModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountLoginModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountLoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountLoginModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountLoginModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>AccountLoginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>AccountLoginModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -223,10 +246,171 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Shopping\css\navigation-menu.css" />
+    <Content Include="Content\Shopping\css\plugins.css" />
+    <Content Include="Content\Shopping\css\shortcode.css" />
+    <Content Include="Content\Shopping\css\woocommerce.css" />
+    <Content Include="Content\Shopping\fonts\lato-medium-webfont.html" />
+    <Content Include="Content\Shopping\fonts\lato-semibold-webfont.html" />
+    <Content Include="Content\Shopping\fonts\star.svg" />
+    <Content Include="Content\Shopping\fonts\WooCommerce.svg" />
+    <Content Include="Content\Shopping\images\ad-banner-1.png" />
+    <Content Include="Content\Shopping\images\ad-banner-2.png" />
+    <Content Include="Content\Shopping\images\ad-banner-3.png" />
+    <Content Include="Content\Shopping\images\ad-banner-4.png" />
+    <Content Include="Content\Shopping\images\ad-banner-5.png" />
+    <Content Include="Content\Shopping\images\ad-banner-6.png" />
+    <Content Include="Content\Shopping\images\ad-banner-7.png" />
+    <Content Include="Content\Shopping\images\ad-banner-bg.jpg" />
+    <Content Include="Content\Shopping\images\apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="Content\Shopping\images\apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="Content\Shopping\images\apple-touch-icon-72x72-precomposed.html" />
+    <Content Include="Content\Shopping\images\author.jpg" />
+    <Content Include="Content\Shopping\images\avtar-1.jpg" />
+    <Content Include="Content\Shopping\images\avtar-2.jpg" />
+    <Content Include="Content\Shopping\images\avtar-3.jpg" />
+    <Content Include="Content\Shopping\images\blog-1.jpg" />
+    <Content Include="Content\Shopping\images\blog-2.jpg" />
+    <Content Include="Content\Shopping\images\blog-3.jpg" />
+    <Content Include="Content\Shopping\images\blog-4.jpg" />
+    <Content Include="Content\Shopping\images\blog-5.jpg" />
+    <Content Include="Content\Shopping\images\blog-banner.jpg" />
+    <Content Include="Content\Shopping\images\blog-gradient-image.png" />
+    <Content Include="Content\Shopping\images\blogpost-banner.jpg" />
+    <Content Include="Content\Shopping\images\cart-1.png" />
+    <Content Include="Content\Shopping\images\cart-2.png" />
+    <Content Include="Content\Shopping\images\cart-3.png" />
+    <Content Include="Content\Shopping\images\cart-banner.jpg" />
+    <Content Include="Content\Shopping\images\checkout-banner.jpg" />
+    <Content Include="Content\Shopping\images\client-1.png" />
+    <Content Include="Content\Shopping\images\client-2.png" />
+    <Content Include="Content\Shopping\images\client-3.png" />
+    <Content Include="Content\Shopping\images\client-4.png" />
+    <Content Include="Content\Shopping\images\client-5.png" />
+    <Content Include="Content\Shopping\images\client-6.png" />
+    <Content Include="Content\Shopping\images\close.png" />
+    <Content Include="Content\Shopping\images\contact-banner.jpg" />
+    <Content Include="Content\Shopping\images\favicon.ico" />
+    <Content Include="Content\Shopping\images\gradient-image.png" />
+    <Content Include="Content\Shopping\images\insta-1.jpg" />
+    <Content Include="Content\Shopping\images\insta-2.jpg" />
+    <Content Include="Content\Shopping\images\insta-3.jpg" />
+    <Content Include="Content\Shopping\images\insta-4.jpg" />
+    <Content Include="Content\Shopping\images\insta-5.jpg" />
+    <Content Include="Content\Shopping\images\insta-6.jpg" />
+    <Content Include="Content\Shopping\images\large-thumb.png" />
+    <Content Include="Content\Shopping\images\latest-blog-1.jpg" />
+    <Content Include="Content\Shopping\images\latest-blog-2.jpg" />
+    <Content Include="Content\Shopping\images\latest-blog-3.jpg" />
+    <Content Include="Content\Shopping\images\latest-post-1.jpg" />
+    <Content Include="Content\Shopping\images\latest-post-2.jpg" />
+    <Content Include="Content\Shopping\images\latest-post-3.jpg" />
+    <Content Include="Content\Shopping\images\latest-product-1.jpg" />
+    <Content Include="Content\Shopping\images\latest-product-2.jpg" />
+    <Content Include="Content\Shopping\images\latest-product-3.jpg" />
+    <Content Include="Content\Shopping\images\logo-1.png" />
+    <Content Include="Content\Shopping\images\noimage.gif" />
+    <Content Include="Content\Shopping\images\noimagebig.gif" />
+    <Content Include="Content\Shopping\images\price-filter.png" />
+    <Content Include="Content\Shopping\images\product-1.jpg" />
+    <Content Include="Content\Shopping\images\product-10.jpg" />
+    <Content Include="Content\Shopping\images\product-11.jpg" />
+    <Content Include="Content\Shopping\images\product-12.jpg" />
+    <Content Include="Content\Shopping\images\product-13.jpg" />
+    <Content Include="Content\Shopping\images\product-14.jpg" />
+    <Content Include="Content\Shopping\images\product-15.jpg" />
+    <Content Include="Content\Shopping\images\product-16.jpg" />
+    <Content Include="Content\Shopping\images\product-2.jpg" />
+    <Content Include="Content\Shopping\images\product-3.jpg" />
+    <Content Include="Content\Shopping\images\product-4.jpg" />
+    <Content Include="Content\Shopping\images\product-5.jpg" />
+    <Content Include="Content\Shopping\images\product-6.jpg" />
+    <Content Include="Content\Shopping\images\product-7.jpg" />
+    <Content Include="Content\Shopping\images\product-8.jpg" />
+    <Content Include="Content\Shopping\images\product-9.jpg" />
+    <Content Include="Content\Shopping\images\product-banner.jpg" />
+    <Content Include="Content\Shopping\images\product-detail-1.jpg" />
+    <Content Include="Content\Shopping\images\product-detail-2.png" />
+    <Content Include="Content\Shopping\images\product-detail-3.png" />
+    <Content Include="Content\Shopping\images\product-detail-4.png" />
+    <Content Include="Content\Shopping\images\product-detail-5.png" />
+    <Content Include="Content\Shopping\images\product-detail-6.png" />
+    <Content Include="Content\Shopping\images\product-wishlist-1.jpg" />
+    <Content Include="Content\Shopping\images\product-wishlist-2.jpg" />
+    <Content Include="Content\Shopping\images\saleup-bg.jpg" />
+    <Content Include="Content\Shopping\images\selling-1.jpg" />
+    <Content Include="Content\Shopping\images\selling-2.jpg" />
+    <Content Include="Content\Shopping\images\selling-3.jpg" />
+    <Content Include="Content\Shopping\images\selling-4.jpg" />
+    <Content Include="Content\Shopping\images\selling-5.jpg" />
+    <Content Include="Content\Shopping\images\selling-6.jpg" />
+    <Content Include="Content\Shopping\images\selling-7.jpg" />
+    <Content Include="Content\Shopping\images\selling-8.jpg" />
+    <Content Include="Content\Shopping\images\selling-9.jpg" />
+    <Content Include="Content\Shopping\images\shop-banner-1.jpg" />
+    <Content Include="Content\Shopping\images\shop-banner.jpg" />
+    <Content Include="Content\Shopping\images\slider-1.png" />
+    <Content Include="Content\Shopping\images\slider-2.png" />
+    <Content Include="Content\Shopping\images\slider-3.png" />
+    <Content Include="Content\Shopping\images\slider-4.png" />
+    <Content Include="Content\Shopping\images\slider-5.png" />
+    <Content Include="Content\Shopping\images\slider-6.png" />
+    <Content Include="Content\Shopping\images\subscribe-bg-1.jpg" />
+    <Content Include="Content\Shopping\images\subscribe-bg.jpg" />
+    <Content Include="Content\Shopping\images\testi-1.jpg" />
+    <Content Include="Content\Shopping\images\testi-2.jpg" />
+    <Content Include="Content\Shopping\images\testi-3.jpg" />
+    <Content Include="Content\Shopping\images\thumb-1.jpg" />
+    <Content Include="Content\Shopping\images\thumb-2.jpg" />
+    <Content Include="Content\Shopping\images\thumb-3.jpg" />
+    <Content Include="Content\Shopping\images\thumb-4.jpg" />
+    <Content Include="Content\Shopping\js\functions.js" />
+    <Content Include="Content\Shopping\js\jquery.min.js" />
+    <Content Include="Content\Shopping\libraries\fonts\ElegantIcons.svg" />
+    <Content Include="Content\Shopping\libraries\fonts\flexslider-icon.svg" />
+    <Content Include="Content\Shopping\libraries\fonts\fontawesome-webfont3295.html" />
+    <Content Include="Content\Shopping\libraries\fonts\fontawesome-webfont3295.svg" />
+    <Content Include="Content\Shopping\libraries\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="Content\Shopping\libraries\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Shopping\libraries\images\ui-bg_diagonals-thick_18_b81900_40x40.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-bg_diagonals-thick_20_666666_40x40.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-bg_flat_10_000000_40x100.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-bg_glass_100_fdf5ce_1x400.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-bg_glass_65_ffffff_1x400.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-bg_highlight-soft_75_ffe45c_1x100.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-icons_222222_256x240.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-icons_228ef1_256x240.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-icons_ef8c08_256x240.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-icons_ffd27a_256x240.html" />
+    <Content Include="Content\Shopping\libraries\images\ui-icons_ffffff_256x240.html" />
+    <Content Include="Content\Shopping\libraries\jquery.countdown.min.js" />
+    <Content Include="Content\Shopping\libraries\lib.css" />
+    <Content Include="Content\Shopping\libraries\lib.js" />
+    <Content Include="Content\Shopping\libraries\lightslider-master\controls.png" />
+    <Content Include="Content\Shopping\libraries\lightslider-master\lightslider.css" />
+    <Content Include="Content\Shopping\libraries\lightslider-master\lightslider.js" />
+    <Content Include="Content\Shopping\libraries\owl.video.play.html" />
+    <Content Include="Content\Shopping\libraries\slick\ajax-loader.gif" />
+    <Content Include="Content\Shopping\libraries\slick\fonts\slick.svg" />
+    <Content Include="Content\Shopping\libraries\slick\slick-theme.css" />
+    <Content Include="Content\Shopping\libraries\slick\slick.css" />
+    <Content Include="Content\Shopping\libraries\slick\slick.min.js" />
+    <Content Include="Content\Shopping\libraries\Stroke-Gap-Icon\stroke-gap-icon.css" />
+    <Content Include="Content\Shopping\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\AccountLoginModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AccountLoginModel.edmx</DependentUpon>
+      <LastGenOutput>AccountLoginModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AccountLoginModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AccountLoginModel.edmx</DependentUpon>
+      <LastGenOutput>AccountLoginModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -234,6 +418,44 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EntityDeploy Include="Models\AccountLoginModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AccountLoginModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AccountLoginModel.edmx.diagram">
+      <DependentUpon>AccountLoginModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\Shopping\fonts\lato-medium-webfont.woff" />
+    <Content Include="Content\Shopping\fonts\lato-semibold-webfont.woff" />
+    <Content Include="Content\Shopping\fonts\star.eot" />
+    <Content Include="Content\Shopping\fonts\star.ttf" />
+    <Content Include="Content\Shopping\fonts\star.woff" />
+    <Content Include="Content\Shopping\fonts\stard41d.eot" />
+    <Content Include="Content\Shopping\fonts\WooCommerce.eot" />
+    <Content Include="Content\Shopping\fonts\WooCommerce.ttf" />
+    <Content Include="Content\Shopping\fonts\WooCommerce.woff" />
+    <Content Include="Content\Shopping\fonts\WooCommerced41d.eot" />
+    <Content Include="Content\Shopping\libraries\fonts\ElegantIcons.eot" />
+    <Content Include="Content\Shopping\libraries\fonts\ElegantIcons.ttf" />
+    <Content Include="Content\Shopping\libraries\fonts\ElegantIcons.woff" />
+    <Content Include="Content\Shopping\libraries\fonts\ElegantIconsd41d.eot" />
+    <Content Include="Content\Shopping\libraries\fonts\flexslider-icon.eot" />
+    <Content Include="Content\Shopping\libraries\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\Shopping\libraries\fonts\flexslider-icon.woff" />
+    <Content Include="Content\Shopping\libraries\fonts\flexslider-icond41d.eot" />
+    <Content Include="Content\Shopping\libraries\fonts\fontawesome-webfont3295.eot" />
+    <Content Include="Content\Shopping\libraries\fonts\fontawesome-webfont3295.ttf" />
+    <Content Include="Content\Shopping\libraries\fonts\fontawesome-webfont3295.woff" />
+    <Content Include="Content\Shopping\libraries\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\Shopping\libraries\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Shopping\libraries\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Shopping\libraries\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Shopping\libraries\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Content\Shopping\libraries\slick\fonts\slick.eot" />
+    <Content Include="Content\Shopping\libraries\slick\fonts\slick.ttf" />
+    <Content Include="Content\Shopping\libraries\slick\fonts\slick.woff" />
+    <Content Include="Content\Shopping\libraries\slick\fonts\slickd41d.eot" />
+    <Content Include="Content\Shopping\libraries\Stroke-Gap-Icon\Stroke-Gap-Icons.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -280,6 +502,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_TopHeader.cshtml" />
+    <Content Include="Views\Shared\_MiddelHeader.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_MenuBlock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +525,9 @@
     <EmbeddedResource Include="Migrations\201710070105285_UpdateTable.resx">
       <DependentUpon>201710070105285_UpdateTable.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

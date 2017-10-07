@@ -1,44 +1,67 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home - Shoes</title>
+    <!-- Standard Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Content/Shopping/images/favicon.ico" />
+    <!-- For iPhone 4 Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/Shopping/~/Content/Shopping/images/apple-touch-icon-114x114-precomposed.png">
+    <!-- For iPhone: -->
+    <link rel="apple-touch-icon-precomposed" href="~/Content/Shopping/~/Content/Shopping/images/apple-touch-icon-57x57-precomposed.png">
+    <!-- Custom - Theme CSS -->
+    <link href="~/Content/Shopping/style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <!--js/html5/respond.min.js-->
+    @RenderSection("css", required: false)
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+<body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
+    <!-- Header -->
+    <header class="header-main header-main-1 container-fluid no-padding">
+        <!-- SidePanel -->
+        <div id="slidepanel">
+            <!-- Top Header -->
+            @Html.Partial("_TopHeader")
+            <!-- Top Header /- -->
+            <!-- Middel Header -->
+            @Html.Partial("_MiddelHeader")
+            <!-- Middel Header /- -->
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+        <!-- Menu Block -->
+        @Html.Partial("_MenuBlock")
+        <!-- Menu Block /- -->
+
+        <div id="detail-section" class="detail-section container-fluid no-padding">
+            <ul>
+                <li><i class="fa fa-phone" aria-hidden="true"></i>24/7 online <span>hỗ trợ miễn phí</span></li>
+                <li><i class="fa fa-money" aria-hidden="true"></i>100% hoàn tiền<span>bảo hành</span></li>
+                <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>Miễn phí<span>giao hàng</span></li>
+            </ul>
+        </div>
+
+    </header><!-- Header /- -->
+
+    <main class="site-main page-spacing">
+        @RenderBody()
+    </main>
+    @Html.Partial("_Footer")
+    <!-- JQuery v1.11.3 -->
+    <script src="~/Content/Shopping/js/jquery.min.js"></script>
+    <!-- Library - Js -->
+    <script src="~/Content/Shopping/libraries/lib.js"></script>
+    <!-- Bootstrap JS File v3.3.5 -->
+    <script src="~/Content/Shopping/libraries/jquery.countdown.min.js"></script>
+    <script src="~/Content/Shopping/libraries/lightslider-master/lightslider.js"></script>
+    <script src="~/Content/Shopping/libraries/slick/slick.min.js"></script>
+    <!-- Library - Google Map API -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> -->
+    <!-- Library - Theme JS -->
+    <script src="~/Content/Shopping/js/functions.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

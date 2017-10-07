@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <!-- Top Header -->
+        <div class="top-header top-header-1 container-fluid no-padding">
+            <!-- Container -->
+            <div class="container">
+                <ul class="contact">
+                    <li><a href="#" title="(+1) 123 - 456 - 7890"><i class="fa fa-phone" aria-hidden="true"></i><span>Phone :</span> (+1) 123 - 456 - 7890</a></li>
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i>  <span>Email :</span>  @Html.ActionLink("" + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                </ul>
+                <div class="dropdown-bar">
+                    <div class="language-dropdown dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="Username" title="Tài khoản" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Tài khoản<span class="caret"></span></button>
+                        <ul class="dropdown-menu no-padding">
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuât</a>  </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- Container /- -->
+        </div><!-- Top Header /- -->
+    }
+}
+else
+{
+    <!-- Top Header -->
+    <div class="top-header top-header-1 container-fluid no-padding">
+        <!-- Container -->
+        <div class="container">
+            <ul class="contact">
+                <li><a href="#" title="(+1) 123 - 456 - 7890"><i class="fa fa-phone" aria-hidden="true"></i><span>Phone :</span> (+1) 123 - 456 - 7890</a></li>
+            </ul>
+            <div class="dropdown-bar">
+                <div class="language-dropdown dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="Username" title="Tài khoản" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Tài khoản<span class="caret"></span></button>
+                    <ul class="dropdown-menu no-padding">
+                        <li><a href="@Url.Action("Register","Account")">Đăng ký</a></li>
+                        <li><a href="@Url.Action("Login","Account")">Đăng nhập</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- Container /- -->
+    </div><!-- Top Header /- -->
+
+}
+
+
+

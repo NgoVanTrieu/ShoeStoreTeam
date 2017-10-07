@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ShoeStoreTeam.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ShoeStoreTeam.Controllers
 {
@@ -72,7 +73,22 @@ namespace ShoeStoreTeam.Controllers
             {
                 return View(model);
             }
+            ShoeStoreTeamEntities db = new ShoeStoreTeamEntities();
+            AspNetUser user = db.AspNetUsers.SingleOrDefault(x => x.Email == model.Email);
+            if (user == null)
+            {
+                ModelState.AddModelError("CustomError", "Email không tồn tại");
+                return View(model);
+            }
+            else
+            {
+                if (user.EmailConfirmed == false)
+                {
+                    ModelState.AddModelError("CustomError", "Tài khoản chưa được xác thực");
+                    return View(model);
+                }
 
+            }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -86,7 +102,7 @@ namespace ShoeStoreTeam.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Sai tài khoản hoặc mật khẩu.");
                     return View(model);
             }
         }
@@ -115,7 +131,7 @@ namespace ShoeStoreTeam.Controllers
             {
                 return View(model);
             }
-
+            
             // The following code protects for brute force attacks against the two factor codes. 
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
@@ -129,7 +145,7 @@ namespace ShoeStoreTeam.Controllers
                     return View("Lockout");
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid code.");
+                    ModelState.AddModelError("", "Sai tài khoản hoặc mật khẩu.");
                     return View(model);
             }
         }
@@ -156,14 +172,15 @@ namespace ShoeStoreTeam.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Xác thực tài khoản", "Vui lòng click vào <a href=\"" + callbackUrl + "\">đây</a> để xác nhận đăng ký tài khoản");
 
-                    return RedirectToAction("Index", "Home");
+                    ViewBag.ThongBao = "Chúng tôi đã gửi một email xác nhận tài khoản đến email bạn đã đăng ký. Vui lòng kiểm tra lại email.";
+                    return View(model);
                 }
                 AddErrors(result);
             }
@@ -211,10 +228,10 @@ namespace ShoeStoreTeam.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Lấy lại mật khẩu", "Click vào <a href=\"" + callbackUrl + "\">đây</a> để thực hiện");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
