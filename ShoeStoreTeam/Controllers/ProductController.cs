@@ -17,7 +17,7 @@ namespace ShoeStoreTeam.Controllers
         // GET: Product
         public ActionResult _LatestProduct()
         {
-            var model = db.Products.Take(10).ToList();
+            var model = db.Products.Take(8).ToList();
             return PartialView(model);
         }
     }
