@@ -1,0 +1,69 @@
+﻿@using ShoeStoreTeam.Models
+@model Product
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="site-main page-spacing">
+    <!-- Page Banner -->
+    <div class="page-banner product-detail container-fluid no-padding">
+        <div class="page-banner-content">
+            <h3>@ViewBag.Title</h3>
+        </div>
+    </div><!-- Page Banner /- -->
+    <!-- Product Detail -->
+    <div class="Product-detail container-fluid no-padding woocommerce">
+        <div class="section-padding"></div>
+        <!-- Container -->
+        <div class="container">
+            <div class="type-product col-md-6 col-sm-7 col-xs-12 product">
+                <div class="images">
+                    <a class="woocommerce-main-image zoom" href="@Url.Content("~/Content/Shopping/images/products/"+Model.Image)" title="Product Image">
+                        <img src="@Url.Content("~/Content/Shopping/images/products/"+Model.Image)"  width="473" height="490" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-5 col-xs-12">
+                <div class="summary entry-summary">
+                    <h1 class="product_title entry-title">@Model.Name</h1>
+                    <p class="price"><span class="amount">@Model.Price VNĐ</span></p>
+                    <h4>Size : <span>@Model.Size</span></h4>
+                    <h4>Màu : <span>@Model.Color</span></h4>
+                    <h4>Xuất sứ : <span>@Model.Company</span></h4>
+                    <div class="product-content">
+                        <p>Sản phẩm chính hãng không fake</p>
+                    </div>
+                    <div class="quantity">
+                        <input type="button" data-field="quantity1" class="qtyminus" value="-">
+                        <input type="text" class="qty" value="0" name="quantity1">
+                        <input type="button" data-field="quantity1" class="qtyplus" id="qtyplus-1" value="+">
+                    </div>
+                    <form class="cart" method="post" enctype="multipart/form-data">
+                        <button type="submit" class="single_add_to_cart_button button alt" title="Add to Cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</button>
+                        
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="product-details-tab">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#ProductDescription" role="tab" data-toggle="tab">Mô tả sản phẩm</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="ProductDescription">
+                            <p class="product-details-content">@Model.Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Container /-  -->
+        <div class="section-padding"></div>
+    </div><!-- Product Detail /-  -->
+    @{ Html.RenderAction("_LatestProduct", "Product");}
+</main>
+

@@ -14,6 +14,7 @@ namespace ShoeStoreTeam.Models
         public string Color { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public string Link { get; set; }
 
         public Category Category { get; set; }
         public byte CategoryId { get; set; }

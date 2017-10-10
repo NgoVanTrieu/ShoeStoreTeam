@@ -36,20 +36,20 @@
 
                                 @if (subCategory != null && subCategory.Count > 0)
                                 {
-                                    <a aria-expanded="false" aria-haspopup="true" role="button" class="dropdown-toggle" href="#">@item.Name</a>
+                                    <a aria-expanded="false" aria-haspopup="true" role="button" class="dropdown-toggle" href="@item.Link">@item.Name</a>
                                     <i class="ddl-switch fa fa-angle-down"></i>
                                     <ul class="dropdown-menu">
                                         @foreach (var item2 in subCategory)
                                         {
                                             <li>
-                                                <a href="#">@item2.Name</a>
+                                                <a href="san-pham/@item2.Link-@item2.Id">@item2.Name</a>
                                             </li>
                                         }
                                     </ul>
                                 }
                                 else
                                 {
-                                    <a href="#">@item.Name</a>
+                                    <a href="@item.Link">@item.Name</a>
                                 }
                             </li>
                         }

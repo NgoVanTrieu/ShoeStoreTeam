@@ -19,5 +19,11 @@ namespace ShoeStoreTeam.Controllers
         {
             return PartialView("_MenuBlock",db.Categories.OrderBy(x => x.DisplayOrder).ToList());
         }
+
+        public ActionResult ProductCategory(byte cateId)
+        {
+            var model = db.Products.Where(x => x.CategoryId == cateId).ToList();
+            return View(model);
+        }
     }
 }

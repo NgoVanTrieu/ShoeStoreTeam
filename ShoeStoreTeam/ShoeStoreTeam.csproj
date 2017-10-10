@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201710070516576_UpdateTableSlide.Designer.cs">
       <DependentUpon>201710070516576_UpdateTableSlide.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710100228263_AddColumnTableCategoryAndProduct.cs" />
+    <Compile Include="Migrations\201710100228263_AddColumnTableCategoryAndProduct.Designer.cs">
+      <DependentUpon>201710100228263_AddColumnTableCategoryAndProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountLoginModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -509,11 +513,11 @@
     <Content Include="Views\Shared\_MenuBlock.cshtml" />
     <Content Include="Views\Shared\_Slider.cshtml" />
     <Content Include="Views\Shared\_LatestProduct.cshtml" />
+    <Content Include="Views\Category\ProductCategory.cshtml" />
+    <Content Include="Views\Product\DetailProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Category\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -541,6 +545,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710070516576_UpdateTableSlide.resx">
       <DependentUpon>201710070516576_UpdateTableSlide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710100228263_AddColumnTableCategoryAndProduct.resx">
+      <DependentUpon>201710100228263_AddColumnTableCategoryAndProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

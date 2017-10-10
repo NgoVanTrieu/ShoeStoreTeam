@@ -11,5 +11,6 @@ namespace ShoeStoreTeam.Models
         public string Name { get; set; }
         public byte ParentId { get; set; }
         public int DisplayOrder { get; set; }
+        public string Link { get; set; }
     }
 }

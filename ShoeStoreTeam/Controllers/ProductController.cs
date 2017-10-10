@@ -20,5 +20,11 @@ namespace ShoeStoreTeam.Controllers
             var model = db.Products.Take(8).ToList();
             return PartialView(model);
         }
+
+        public ActionResult DetailProduct(long proId)
+        {
+            var detail = db.Products.Find(proId);
+            return View(detail);
+        }
     }
 }
