@@ -23,33 +23,7 @@
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2 add-to-cart">
                 <ul class="cart">
-                    <li>
-                        <a aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" id="cart" class="btn dropdown-toggle" title="Add To Cart" href="#">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <h3>Giỏ hàng</h3>
-                            <h5>(02) Sản phẩm - <span>$200.00</span></h5>
-                        </a>
-                        <ul class="dropdown-menu no-padding">
-                            <li class="mini_cart_item">
-                                <a title="Remove this item" class="remove" href="#">&#215;</a>
-                                <a href="#" class="shop-thumbnail">
-                                    <img width="60" height="60" alt="poster_2_up" class="attachment-shop_thumbnail" src="~/Content/Shopping/images/product-wishlist-1.jpg" />Flying Ninja
-                                </a>
-                                <span class="quantity">2 &#215; <span class="amount">Rs.12.00</span></span>
-                            </li>
-                            <li class="mini_cart_item">
-                                <a title="Remove this item" class="remove" href="#">&#215;</a>
-                                <a href="#" class="shop-thumbnail">
-                                    <img width="60" height="60" alt="poster_2_up" class="attachment-shop_thumbnail" src="~/Content/Shopping/images/product-wishlist-2.jpg" />Flying Ninja
-                                </a>
-                                <span class="quantity">2 &#215; <span class="amount">Rs.12.00</span></span>
-                            </li>
-                            <li class="button">
-                                <a href="#" title="View Cart">Xem giỏ hàng</a>
-                                <a href="#" title="Check Out">Mua ngay</a>
-                            </li>
-                        </ul>
-                    </li>
+                       @{Html.RenderAction("CartPartial", "Cart");}      
                 </ul>
             </div>
         </div><!-- Row /- -->
