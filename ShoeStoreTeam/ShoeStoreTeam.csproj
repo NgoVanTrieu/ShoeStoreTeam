@@ -242,6 +242,10 @@
     <Compile Include="Migrations\201710140214411_addtableblog.Designer.cs">
       <DependentUpon>201710140214411_addtableblog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710140625195_CreateTableOrderAndOrderDetail.cs" />
+    <Compile Include="Migrations\201710140625195_CreateTableOrderAndOrderDetail.Designer.cs">
+      <DependentUpon>201710140625195_CreateTableOrderAndOrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountLoginModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -272,6 +276,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Slide.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -542,6 +548,7 @@
     <Content Include="Views\Admin\CreateCompany.cshtml" />
     <Content Include="Views\Admin\EditCompany.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\Product\ProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -581,6 +588,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710140214411_addtableblog.resx">
       <DependentUpon>201710140214411_addtableblog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710140625195_CreateTableOrderAndOrderDetail.resx">
+      <DependentUpon>201710140625195_CreateTableOrderAndOrderDetail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

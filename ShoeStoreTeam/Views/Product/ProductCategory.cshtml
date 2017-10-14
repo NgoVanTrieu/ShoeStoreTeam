@@ -1,0 +1,47 @@
+﻿@using ShoeStoreTeam.Models
+@model List<Product>
+@{
+    ViewBag.Title = "Danh mục sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="site-main page-spacing">
+    <!-- Page Banner -->
+    <div class="page-banner shop-banner container-fluid no-padding">
+        <div class="page-banner-content">
+            <h3>Sản phẩm của chúng tôi</h3>
+        </div>
+    </div><!-- Page Banner /- -->
+    <!-- Shop 2 -->
+    <div class="latest-product shop-2 container-fluid no-padding woocommerce">
+        <div class="section-padding"></div>
+        <!-- Container -->
+        <div class="container">
+            <ul class="products animated lightSpeedIn" style="margin-bottom: 50px;">
+                @foreach(var item in Model)
+                {
+                    <li class="product" style="width:25%;">
+                        <a href="chi-tiet/@item.Link-@item.Id">
+                            <span class="new-product">New</span>
+                            <span class="onsale">15%</span>
+                            <span class="product-img">
+                                <img src="@Url.Content("~/Content/Shopping/images/products/"+item.Image)" style="height: 300px;width:270px;" alt="product" />
+                            </span>
+                            <h3>@item.Name</h3>
+                            <span class="price"><span class="amount">@item.Price VNĐ</span></span>
+                        </a>
+                        <p class="hover-content">
+                            <a title="Add To Cart" href="#" class="button product_type_simple add_to_cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
+                        </p>
+                    </li>
+                }
+
+
+            </ul>
+        </div><!-- Container /- -->
+        <div class="section-padding"></div>
+    </div><!-- Shop 2 /- -->
+</main>
+
+
+

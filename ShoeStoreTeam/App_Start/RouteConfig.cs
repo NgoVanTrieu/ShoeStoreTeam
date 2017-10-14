@@ -38,6 +38,12 @@ namespace ShoeStoreTeam
             );
 
             routes.MapRoute(
+                name: "Product CategoryId",
+                url: "{link}-{CateId}",
+                defaults: new { controller = "Product", action = "ProductCategory", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                name: "Detail Product",
                url: "chi-tiet/{link}-{proId}",
                defaults: new { controller = "Product", action = "DetailProduct", id = UrlParameter.Optional }
