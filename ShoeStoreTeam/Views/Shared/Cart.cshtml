@@ -67,13 +67,15 @@
                                     <th>Total</th>
                                     <td><strong><span class="amount">@ViewBag.TongTien</span></strong> </td>
                                 </tr>
+                                
                             </tbody>
+                            
                         </table>
+                        <div class="wc-proceed-to-checkout">
+                            @*<a href="@Url.Action("DatHang","Order")"><input type="submit" value="Proceed to Checkout" /></a>*@
+                            <a title="Proceed To CheckOut" class="btn" href="@Url.Action("DatHang","Order")">Proceed to Checkout</a>
+                        </div>
                     </div>
-                </div>
-                <div class="wc-proceed-to-checkout">     
-                        @*<a href="@Url.Action("DatHang","Order")"><input type="submit" value="Proceed to Checkout" /></a>*@
-                    <a title="Proceed To CheckOut" class="btn" href="@Url.Action("DatHang","Order")">Proceed to Checkout</a>
                 </div>
             </div>
         </div>
