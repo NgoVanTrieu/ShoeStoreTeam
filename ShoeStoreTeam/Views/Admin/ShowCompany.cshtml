@@ -1,0 +1,59 @@
+﻿
+
+@model IEnumerable<ShoeStoreTeam.Models.Company>
+
+@{
+    ViewBag.Title = "ShowCompany";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="table-agile-info" style="padding-top:100px">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            CÔNG TY CUNG CẤP GIẦY
+        </div>
+
+        <div>
+            <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                <thead>
+
+                    <tr>
+                        <th data-breakpoints="xs">ID</th>
+                        <th>Tên Công Ty</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-expanded="true">
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>
+                                <a href="@Url.Action("EditCompany", "Admin",new {@CompanyId= @item.Id})" title="Edit Company" class="fa fa-edit"></a>
+                            </td>
+                            <td>
+                                <a onclick="return confirmXoa()" href="@Url.Action("DeleteCompany", "Admin",new {@CompanyId = @item.Id })" title="Delete Company" class="fa fa-delicious"></a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <a href="@Url.Action("CreateCompany", "Admin")" class="btn btn-danger">Thêm Mới Công Ty</a>
+</div>
+

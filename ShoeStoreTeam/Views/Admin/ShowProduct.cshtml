@@ -1,0 +1,78 @@
+﻿
+
+@using ShoeStoreTeam.Controllers;
+@model IEnumerable<ShoeStoreTeam.Models.Product>
+@{
+    ViewBag.Title = "ShowProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="table-agile-info" style="padding-top:100px">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            SẢN PHẨM GIẦY
+        </div>
+
+        <div>
+            <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                <thead>
+
+                    <tr>
+                        <th data-breakpoints="xs">ID</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá Tiền</th>
+                        <th>Size</th>
+                        <th>Màu</th>
+                        <th>Mô Tả</th>
+                        <th>Chủ Đề</th>
+                        <th>Hãng</th>
+                        <th>Hình Ảnh</th>
+                        <th>Link</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-expanded="true">
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Price</td>
+                            <td>@item.Size</td>
+
+                            <td>@item.Color</td>
+                            <td>@item.Description</td>
+                            <td>@item.CategoryId</td>
+                            <td>@item.CompanyId</td>
+                            <td><img src="@Url.Content("~/Content/Shopping/images/products/"+item.Image)" width="55" height="55" /></td>
+                            <td>@item.Link</td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Admin",new {@ProductId=@item.Id})" title="Edit Product" class="fa fa-edit"></a>
+                            </td>
+                            <td>
+                                <a onclick="return confirmXoa()" href="@Url.Action("Delete", "Admin",new {@ProductId = @item.Id })" title="Delete Product" class="fa fa-delicious"></a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <a href="@Url.Action("Create", "Admin")" class="btn btn-danger">Tạo Mới Sản Phẩm</a>
+</div>
+
+
