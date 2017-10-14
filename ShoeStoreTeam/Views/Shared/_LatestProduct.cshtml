@@ -15,13 +15,13 @@
                         <span class="new-product">New</span>
                         <span class="onsale">15%</span>
                         <span class="product-img">
-                            <img src="@Url.Content("~/Content/Shopping/images/products/"+@item.Image)" style="height: 300px;width:270px;" alt="product" />
+                            <img src="@Url.Content("~/Content/Shopping/images/products/"+item.Image)" style="height: 300px;width:270px;" alt="product" />
                         </span>
                         <h3>@item.Name</h3>
                         <span class="price"><span class="amount">@item.Price VNĐ</span></span>
                     </a>
                     <p class="hover-content">
-                        <a title="Add To Cart" href="#" class="button product_type_simple add_to_cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
+                        <a title="Add To Cart" href="@Url.Action("ThemCart", "Cart", new { @magiay = @item.Id, @strURL = Request.Url.ToString() })" class="button product_type_simple add_to_cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
                     </p>
                 </li>
             }

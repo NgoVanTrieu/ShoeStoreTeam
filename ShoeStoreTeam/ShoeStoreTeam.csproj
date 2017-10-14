@@ -200,6 +200,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -267,6 +268,7 @@
       <DependentUpon>AccountLoginModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -484,7 +486,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Views\Shared\Cart.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -536,6 +541,7 @@
     <Content Include="Views\Admin\ShowCompany.cshtml" />
     <Content Include="Views\Admin\CreateCompany.cshtml" />
     <Content Include="Views\Admin\EditCompany.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
