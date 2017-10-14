@@ -1,0 +1,46 @@
+﻿@model List<ShoeStoreTeam.Models.Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-banner blog-banner container-fluid no-padding">
+    <div class="page-banner-content">
+        <h3>Tin mới</h3>
+    </div>
+</div><!-- Page Banner /- -->
+<!-- Blog Section -->
+<div class="latest-blog blog-section container-fluid no-padding">
+    <div class="section-padding"></div>
+    <!-- Container -->
+    <div class="container">
+        <!-- Content Area -->
+        <div class="content-area col-md-12 col-sm-12 col-xs-12">
+            @foreach(var item in Model)
+            {
+                <article class="type-post col-md-12 col-sm-12 col-xs-12 no-padding">
+                    <div class="entry-cover">
+                        <a href="blog-post.html" title="Recent Blog">
+                            <img src="@Url.Content("~/Content/Shopping/images/"+@item.Image)" alt="blog" width="1140" height="440">
+                            <div class="image-gradient"></div>
+                        </a>
+                        <div class="image-icon">
+                            <a href="#" title="file-image"><i class="fa fa-file-image-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="latest-blog-content">
+                            <h3 class="entry-title"><a href="blog-post.html" title="On your mark get set and go now Got a dream and we just know now gonna">@item.Title</a></h3>
+                            <br />
+                            <a href="#">@item.CreatedDate</a>
+                        </div>
+                    </div>
+                    <div class="entry-content">
+                        <p>@item.Description</p>
+                    </div>
+                </article>
+            }
+         
+        </div>
+    </div>
+    <div class="section-padding"></div>
+</div>
+

@@ -13,6 +13,7 @@ namespace ShoeStoreTeam.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Slide> Slides { get; set; }
+        public DbSet<Blog> Bloges { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

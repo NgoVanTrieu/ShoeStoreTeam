@@ -25,5 +25,25 @@ namespace ShoeStoreTeam.Controllers
             return PartialView(model);
         }
 
+        public ActionResult Search(string searchString)
+        {
+            IQueryable<Product> model = db.Products;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Name.Contains(searchString));
+            }
+            return View(model.OrderByDescending(x => x.Price));
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
     }
 }

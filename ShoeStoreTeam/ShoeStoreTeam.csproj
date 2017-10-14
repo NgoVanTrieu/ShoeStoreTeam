@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -233,6 +234,10 @@
     <Compile Include="Migrations\201710100228263_AddColumnTableCategoryAndProduct.Designer.cs">
       <DependentUpon>201710100228263_AddColumnTableCategoryAndProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710140214411_addtableblog.cs" />
+    <Compile Include="Migrations\201710140214411_addtableblog.Designer.cs">
+      <DependentUpon>201710140214411_addtableblog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountLoginModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -258,6 +263,7 @@
     <Compile Include="Models\AspNetUser.cs">
       <DependentUpon>AccountLoginModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -515,6 +521,10 @@
     <Content Include="Views\Shared\_LatestProduct.cshtml" />
     <Content Include="Views\Category\ProductCategory.cshtml" />
     <Content Include="Views\Product\DetailProduct.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -548,6 +558,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710100228263_AddColumnTableCategoryAndProduct.resx">
       <DependentUpon>201710100228263_AddColumnTableCategoryAndProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710140214411_addtableblog.resx">
+      <DependentUpon>201710140214411_addtableblog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

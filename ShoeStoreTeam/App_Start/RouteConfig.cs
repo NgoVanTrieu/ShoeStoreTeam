@@ -16,19 +16,19 @@ namespace ShoeStoreTeam
             routes.MapRoute(
                 name: "About",
                 url: "gioi-thieu",
-                defaults: new { controller = "Category", action = "ProductCategory", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Contact",
                 url: "lien-he",
-                defaults: new { controller = "Category", action = "ProductCategory", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Blog",
                 url: "tin-tuc",
-                defaults: new { controller = "Category", action = "ProductCategory", id = UrlParameter.Optional }
+                defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

@@ -8,15 +8,18 @@
                 </div>
             </div>
             <div class="header-info">
-                <div class="col-md-5 col-sm-6 col-xs-6">
-                    <div class="input-group">
-                        <!-- /btn-group -->
-                        <input type="text" placeholder="Tìm kiếm..." class="form-control">
-                        <span class="input-group-btn">
-                            <button type="button" title="Search" class="btn btn-search"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div>
+                @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                {
+                    <div class="col-md-5 col-sm-6 col-xs-6">
+                        <div class="input-group">
+                            <!-- /btn-group -->
+                            <input type="text" placeholder="Tìm kiếm..." class="form-control" name="searchString">
+                            <span class="input-group-btn">
+                                <button type="submit" title="Search" class="btn btn-search"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                }
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2 add-to-cart">
                 <ul class="cart">
@@ -52,4 +55,3 @@
         </div><!-- Row /- -->
     </div><!-- Container /- -->
 </div><!-- Middel Header /- -->
-

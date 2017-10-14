@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-banner container-fluid no-padding">
+    <div class="page-banner-content">
+        <h3>Liên hệ với chúng tôi</h3>
+    </div>
+</div>
+<div class="contact-us container-fluid no-padding">
+    <div class="section-padding"></div>
+    <div class="container">
+        <div class="col-md-6 col-sm-6 col-xs-6 contact-form">
+            <div class="section-header">
+                <h3>Liên hệ với chúng tôi</h3>
+            </div>
+            <form id="contact-form" class="row">
+                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                    <label>Tên của bạn *</label>
+                    <input type="text" class="form-control" id="input_name" name="contact-name" required>
+                </div>
+                <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                    <label>Email của bạn *</label>
+                    <input type="email" class="form-control" id="input_email" name="contact-email" required>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <label>Tiêu đề</label>
+                    <input type="text" class="form-control" id="input_subject" name="contact-subject" required>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <label>Tin nhắn của bạn</label>
+                    <textarea class="form-control" rows="8" id="textarea_message" name="contact-message"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" title="Send a message" value="Gửi" id="btn_submit" name="Send a message">
+                </div>
+                <div id="alert-msg" class="alert-msg"></div>
+            </form>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 contact-detail">
+            <div class="section-header">
+                <h3>Thông tin liên lạc</h3>
+                <p>Các bạn có thắc mắc hay cần hỗ trợ gì hãy liên lạc với chúng tôi</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6 contact-content">
+                    <div class="contact-info">
+                        <span class="icon icon-Pointer"></span>
+                        <p>475A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 contact-content">
+                    <div class="contact-info">
+                        <span class="icon icon-Mail"></span>
+                        <p><a href="mailto:info@ourdomain.com" title="Info@ourdomain.com">vantrieu@gmail.com</a></p>
+                        <p><a href="mailto:info@ourdomain.com" title="Info@ourdomain.com">thanhtuan@gmail.com</a></p>
+                        <p><a href="mailto:info@ourdomain.com" title="Info@ourdomain.com">quoctuan@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 contact-content">
+                    <div class="contact-info">
+                        <span class="icon icon-Phone"></span>
+                        <p>0969696969</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 contact-content">
+                    <div class="contact-info">
+                        <span class="icon icon-Phone"></span>
+                        <p>Miễn phí vận chuyển cho tất cả đơn đặt hàng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-padding"></div>
+</div>
