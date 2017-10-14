@@ -4,62 +4,6 @@
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@*<style>
-    .col-sm-3 {
-        display: none;
-    }
-
-    h2 {
-        display: none;
-    }
-
-    .col-main {
-        display: block;
-    }
-</style>
-<h2>GioHang</h2>
-<table>
-    <tr>
-        <td style="padding-right:50px;">Mã Giày</td>
-
-        <td style="padding-right:50px;">Tên Giày</td>
-
-        <td style="padding-right:50px;">Ảnh</td>
-
-        <td style="padding-right:50px;">Đơn Giá</td>
-
-        <td style="padding-right:50px;">Số Lượng</td>
-
-        <td style="padding-right:50px;">Thành Tiền</td>
-    </tr>
-
-</table>
-@{
-    foreach (var item in Model)
-    {
-        <tr>
-            <td style="padding-right:150px;">@item.IMaGiay</td>
-
-            <td style="padding-right:50px;">@item.sTenGiay</td>
-
-            <td style="padding-right:50px;"><img src="@Url.Content("~/Content/Shopping/images/products/"+item.sHinhAnh)" width="150px" height="150px" /></td>
-
-            <td style="padding-right:50px;">@String.Format("{0:0,0}", item.dDonGia) VNĐ</td>
-
-            <td style="padding-right:50px;">@item.sSoLuong</td>
-
-            <td style="padding-right:50px;">@String.Format("{0:0,0}", item.ThanhTien) VNĐ</td>
-        </tr>
-    }
-}*@
-    <!-- Page Banner -->
-    @*<div class="page-banner cart-banner container-fluid no-padding">
-        <div class="page-banner-content">
-            <h3>Shopping Cart</h3>
-        </div>
-    </div>*@<!-- Page Banner /- -->
-    <!-- Cart -->
     <div id="cart-main" class="cart-main">
         <div class="section-padding"></div>
         <div class="container">
@@ -103,11 +47,12 @@
                     <a title="Remove this item" class="remove" href="@Url.Action("XoaCart", "Cart", new { @magiay = @item.IMaGiay, @strURL = Request.Url.ToString() })"><img src="~/Content/Shopping/images/close.png" alt="close" /></a>
                 </td>
             </tr>
+            
 
         </tbody>
-        }
     }
-                    </table>
+}
+                    </table>                
                 </form>
 
 
@@ -126,8 +71,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="wc-proceed-to-checkout">
-                    <a title="Proceed To CheckOut" class="btn" href="#">Proceed to Checkout</a>
+                <div class="wc-proceed-to-checkout">     
+                        @*<a href="@Url.Action("DatHang","Order")"><input type="submit" value="Proceed to Checkout" /></a>*@
+                    <a title="Proceed To CheckOut" class="btn" href="@Url.Action("DatHang","Order")">Proceed to Checkout</a>
                 </div>
             </div>
         </div>

@@ -21,26 +21,26 @@ namespace ShoeStoreTeam
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            var client = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                UseDefaultCredentials = false,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential("vantrieupy1996@gmail.com", "01646464420"),
-                EnableSsl = true,
-            };
-            var from = new MailAddress("vantrieupy1996@gmail.com", "Admin ShoeStore");
-            var to = new MailAddress(message.Destination);
+            //var client = new SmtpClient
+            //{
+            //    Host = "smtp.gmail.com",
+            //    Port = 587,
+            //    UseDefaultCredentials = false,
+            //    DeliveryMethod = SmtpDeliveryMethod.Network,
+            //    Credentials = new NetworkCredential("vantrieupy1996@gmail.com", "01646464420"),
+            //    EnableSsl = true,
+            //};
+            //var from = new MailAddress("vantrieupy1996@gmail.com", "Admin ShoeStore");
+            //var to = new MailAddress(message.Destination);
 
-            var mail = new MailMessage(from, to)
-            {
-                Subject = message.Subject,
-                Body = message.Body,
-                IsBodyHtml = true,
-            };
+            //var mail = new MailMessage(from, to)
+            //{
+            //    Subject = message.Subject,
+            //    Body = message.Body,
+            //    IsBodyHtml = true,
+            //};
 
-            client.Send(mail);
+            //client.Send(mail);
             return Task.FromResult(0);
         }
     }

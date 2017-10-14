@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ShoeStoreTeam.Models;
+using Microsoft.AspNet.Identity;
+
 namespace ShoeStoreTeam.Controllers
 {
     public class CartController : Controller
@@ -63,7 +65,7 @@ namespace ShoeStoreTeam.Controllers
             {
                 sanpham.sSoLuong =int.Parse(f["txtSoLuong"].ToString());
             }
-            return View("Cart");
+            return RedirectToAction("Cart");
         }
         //Xoa Gio Hang
         public ActionResult XoaCart (long magiay)
@@ -130,5 +132,32 @@ namespace ShoeStoreTeam.Controllers
             ViewBag.TongTien = TongTien();
             return PartialView();
         }
+        //Xây dựng Đặt Hàng
+        //[Authorize]
+        //[HttpPost]
+        //public ActionResult DatHang()
+        //{
+        //    //Kiểm tra Đặt Hàng
+        //    if (Session["Cart"] == null)
+        //    {
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    //Thêm Đơn Hàng
+        //    Order order = new Order();
+        //    List<Cart> gh = LayCart();
+        //    order.UserId = User.Identity.GetUserId();
+        //    order.NgayDat = DateTime.Now;
+        //    db.Orderes.Add(order);
+        //    db.SaveChanges();
+        //    //Thêm Chi Tiêt Don Hang
+        //    foreach(var item in gh)
+        //    {
+        //        OrderDetail ctdh = new OrderDetail();
+        //        ctdh.OrderId = order.Id;
+        //        ctdh.SoLuong = item.sSoLuong;
+        //        ctdh.DonGia =(float)item.dDonGia;
+        //    }
+        //    return RedirectToAction("Index","Home");
+        //}
     }
 }

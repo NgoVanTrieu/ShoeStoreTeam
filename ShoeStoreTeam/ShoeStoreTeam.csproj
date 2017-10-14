@@ -204,6 +204,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Dao\CategoryDao.cs" />
     <Compile Include="Dao\CompanyDao.cs" />
@@ -555,6 +556,7 @@
     <Folder Include="Content\Admin\css\" />
     <Folder Include="Content\Admin\fonts\" />
     <Folder Include="Content\Admin\js\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
