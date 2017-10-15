@@ -14,6 +14,8 @@ namespace ShoeStoreTeam.Models
         public DbSet<Company> Companies { get; set; }
         public DbSet<Slide> Slides { get; set; }
         public DbSet<Blog> Bloges { get; set; }
+        public DbSet<Order> Orderes { get; set; }
+        public DbSet<OrderDetail> OrderDetailes { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

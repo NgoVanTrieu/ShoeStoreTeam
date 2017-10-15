@@ -26,5 +26,11 @@ namespace ShoeStoreTeam.Controllers
             var detail = db.Products.Find(proId);
             return View(detail);
         }
+
+        public ActionResult ProductCategory(long CateId)
+        {
+            var detail = db.Products.Where(x=>x.Category.ParentId==CateId).ToList();
+            return View(detail);
+        }
     }
 }
