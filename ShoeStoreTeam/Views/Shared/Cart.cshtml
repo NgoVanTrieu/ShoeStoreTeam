@@ -33,7 +33,7 @@
                     <a title="Product Name" href="#">@item.sTenGiay</a>
                 </td>
                 <td data-title="Price" class="product-price">
-                    <span class="amount">@item.dDonGia</span>
+                    <span class="amount">@String.Format("{0:0,0}", item.dDonGia) VNĐ</span>
                 </td>
                 <td data-title="Quantity" class="product-quantity">
                     <div class="quantity">
@@ -41,7 +41,7 @@
                     </div>
                 </td>
                 <td data-title="Total" class="product-subtotal">
-                    <span class="amount">@item.ThanhTien</span>
+                    <span class="amount">@String.Format("{0:0,0}", item.ThanhTien) VNĐ</span>
                 </td>
                 <td class="product-remove">
                     <a title="Remove this item" class="remove" href="@Url.Action("XoaCart", "Cart", new { @magiay = @item.IMaGiay, @strURL = Request.Url.ToString() })"><img src="~/Content/Shopping/images/close.png" alt="close" /></a>

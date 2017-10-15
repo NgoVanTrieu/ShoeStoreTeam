@@ -247,6 +247,14 @@
     <Compile Include="Migrations\201710140625195_CreateTableOrderAndOrderDetail.Designer.cs">
       <DependentUpon>201710140625195_CreateTableOrderAndOrderDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710150115496_UpdateDataBase.cs" />
+    <Compile Include="Migrations\201710150115496_UpdateDataBase.Designer.cs">
+      <DependentUpon>201710150115496_UpdateDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710150119055_CreateTongTienandName.cs" />
+    <Compile Include="Migrations\201710150119055_CreateTongTienandName.Designer.cs">
+      <DependentUpon>201710150119055_CreateTongTienandName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountLoginModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -593,6 +601,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710140625195_CreateTableOrderAndOrderDetail.resx">
       <DependentUpon>201710140625195_CreateTableOrderAndOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710150115496_UpdateDataBase.resx">
+      <DependentUpon>201710150115496_UpdateDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710150119055_CreateTongTienandName.resx">
+      <DependentUpon>201710150119055_CreateTongTienandName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

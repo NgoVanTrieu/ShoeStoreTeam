@@ -132,32 +132,5 @@ namespace ShoeStoreTeam.Controllers
             ViewBag.TongTien = TongTien();
             return PartialView();
         }
-        //Xây dựng Đặt Hàng
-        //[Authorize]
-        //[HttpPost]
-        //public ActionResult DatHang()
-        //{
-        //    //Kiểm tra Đặt Hàng
-        //    if (Session["Cart"] == null)
-        //    {
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    //Thêm Đơn Hàng
-        //    Order order = new Order();
-        //    List<Cart> gh = LayCart();
-        //    order.UserId = User.Identity.GetUserId();
-        //    order.NgayDat = DateTime.Now;
-        //    db.Orderes.Add(order);
-        //    db.SaveChanges();
-        //    //Thêm Chi Tiêt Don Hang
-        //    foreach(var item in gh)
-        //    {
-        //        OrderDetail ctdh = new OrderDetail();
-        //        ctdh.OrderId = order.Id;
-        //        ctdh.SoLuong = item.sSoLuong;
-        //        ctdh.DonGia =(float)item.dDonGia;
-        //    }
-        //    return RedirectToAction("Index","Home");
-        //}
     }
 }

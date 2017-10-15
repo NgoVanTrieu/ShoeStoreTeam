@@ -22,6 +22,17 @@ namespace ShoeStoreTeam.Controllers
             }
             return lstCart;
         }
+        private double TongTien()
+        {
+            double dTongTien = 0;
+            List<Cart> lstCart = Session["Cart"] as List<Cart>;
+            if (lstCart != null)
+            {
+                dTongTien = lstCart.Sum(n => n.ThanhTien);
+
+            }
+            return dTongTien;
+        }
         [Authorize]
         // GET: Order
         public ActionResult DatHang()
@@ -37,6 +48,7 @@ namespace ShoeStoreTeam.Controllers
             order.UserId = User.Identity.GetUserId();
             order.NgayDat = DateTime.Now;
             order.NgayGiao = DateTime.Now;
+            order.TongTien = TongTien();
             db.Orderes.Add(order);
             db.SaveChanges();
             //Thêm Chi Tiêt Don Hang
@@ -48,6 +60,7 @@ namespace ShoeStoreTeam.Controllers
                 ctdh.OrderId = order.Id;
                 ctdh.SoLuong = item.sSoLuong;
                 ctdh.DonGia = (float)item.dDonGia;
+                ctdh.Name = item.sTenGiay;
                 db.OrderDetailes.Add(ctdh);  
             }
             db.SaveChanges();
