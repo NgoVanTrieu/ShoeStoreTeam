@@ -64,6 +64,7 @@ namespace ShoeStoreTeam.Controllers
                 db.OrderDetailes.Add(ctdh);  
             }
             db.SaveChanges();
+            Session["Cart"]= null;
             return RedirectToAction("Index", "Home");
         }
     }
