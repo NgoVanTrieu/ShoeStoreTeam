@@ -18,6 +18,7 @@ namespace ShoeStoreTeam.Models
         [Key]
         [Column(Order = 2)]
         public long OrderId { set; get; }
+        public string Name { set; get; }
         public int SoLuong { set; get; }
         public double DonGia { set; get; }
     }

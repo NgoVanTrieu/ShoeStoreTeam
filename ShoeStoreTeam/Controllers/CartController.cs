@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ShoeStoreTeam.Models;
+using Microsoft.AspNet.Identity;
+
 namespace ShoeStoreTeam.Controllers
 {
     public class CartController : Controller
@@ -63,7 +65,7 @@ namespace ShoeStoreTeam.Controllers
             {
                 sanpham.sSoLuong =int.Parse(f["txtSoLuong"].ToString());
             }
-            return View("Cart");
+            return RedirectToAction("Cart");
         }
         //Xoa Gio Hang
         public ActionResult XoaCart (long magiay)
