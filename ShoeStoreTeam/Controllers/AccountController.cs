@@ -56,6 +56,7 @@ namespace ShoeStoreTeam.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -73,22 +74,6 @@ namespace ShoeStoreTeam.Controllers
             {
                 return View(model);
             }
-            //ShoeStoreTeamEntities db = new ShoeStoreTeamEntities();
-            //AspNetUser user = db.AspNetUsers.SingleOrDefault(x => x.Email == model.Email);
-            //if (user == null)
-            //{
-            //    ModelState.AddModelError("CustomError", "Email không tồn tại");
-            //    return View(model);
-            //}
-            //else
-            //{
-            //    if (user.EmailConfirmed == false)
-            //    {
-            //        ModelState.AddModelError("CustomError", "Tài khoản chưa được xác thực");
-            //        return View(model);
-            //    }
-
-            //}
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);

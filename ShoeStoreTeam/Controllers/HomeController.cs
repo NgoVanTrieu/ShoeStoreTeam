@@ -1,4 +1,6 @@
-﻿using ShoeStoreTeam.Models;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ShoeStoreTeam.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,10 @@ namespace ShoeStoreTeam.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole("User"))
+                return View();
+            else 
+                return RedirectToAction("Index", "Admin");
         }
 
         public ActionResult _Slider()
